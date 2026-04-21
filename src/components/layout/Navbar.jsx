@@ -116,7 +116,7 @@ export default function Navbar() {
                 to="/contact"
                 className="hidden lg:inline-flex px-5 py-2.5 bg-accent text-accent-foreground text-sm font-inter font-semibold rounded-lg hover:bg-accent/90 transition-all duration-300 hover:shadow-lg hover:shadow-accent/25"
               >
-                Partner With Us
+                Contact Us
               </Link>
               <button
                 onClick={() => setIsOpen(true)}
