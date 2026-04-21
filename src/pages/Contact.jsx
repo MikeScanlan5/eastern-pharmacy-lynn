@@ -84,19 +84,7 @@ export default function Contact() {
           </div>
         </div>
       </section>
-      {/* Service Area Map */}
-      <section className="pb-24 lg:pb-32">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="mb-10">
-            <SectionHeading
-              label="Coverage Area"
-              title="Where We Serve"
-              description="Explore our active network of facilities across the North Shore. Click any pin to see services we provide and connect with our team."
-            />
-          </div>
-          <ServiceAreaMap />
-        </div>
-      </section>
+
     </div>
   );
 }
