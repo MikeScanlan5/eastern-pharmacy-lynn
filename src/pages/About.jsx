@@ -142,18 +142,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Facility Image */}
-      <section className="pb-24 lg:pb-32">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="rounded-2xl overflow-hidden">
-            <img src="https://media.base44.com/images/public/69e70dbd38987d0fb7722d27/5181b8aeb_EasternPharmacyLogo_Light1.png"
 
-            alt="Modern pharmaceutical facility" className="w-full h-80 lg:h-[28rem] object-cover" />
-
-            
-          </div>
-        </div>
-      </section>
     </div>);
 
 }
