@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
@@ -11,8 +11,13 @@ const navLinks = [
   { label: 'Contact', path: '/contact' },
 ];
 
+const formsLinks = [
+  { label: 'New Patient Transfer', path: '/patient-transfer' },
+];
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [formsOpen, setFormsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
@@ -42,6 +47,43 @@ export default function Navbar() {
 
             {/* Desktop Nav */}
             <div className="hidden lg:flex items-center gap-8">
+              {/* Forms Dropdown */}
+              <div
+                className="relative"
+                onMouseEnter={() => setFormsOpen(true)}
+                onMouseLeave={() => setFormsOpen(false)}
+              >
+                <button className={`flex items-center gap-1 text-sm font-inter font-medium transition-colors duration-300 ${
+                  formsLinks.some(l => l.path === location.pathname)
+                    ? (scrolled ? 'text-accent' : 'text-white')
+                    : (scrolled ? 'text-muted-foreground hover:text-foreground' : 'text-white/70 hover:text-white')
+                }`}>
+                  Forms
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${formsOpen ? 'rotate-180' : ''}`} />
+                </button>
+                <AnimatePresence>
+                  {formsOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 6 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute top-full left-0 mt-2 w-52 bg-card border border-border rounded-xl shadow-xl overflow-hidden z-50"
+                    >
+                      {formsLinks.map((link) => (
+                        <Link
+                          key={link.path}
+                          to={link.path}
+                          className="block px-4 py-3 text-sm font-inter text-foreground hover:bg-muted hover:text-accent transition-colors"
+                        >
+                          {link.label}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
@@ -106,6 +148,24 @@ export default function Navbar() {
               </button>
             </div>
             <div className="flex-1 flex flex-col items-center justify-center gap-8">
+              {/* Forms mobile links */}
+              {formsLinks.map((link, i) => (
+                <motion.div
+                  key={link.path}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.08 }}
+                >
+                  <Link
+                    to={link.path}
+                    className={`text-4xl font-inter font-semibold tracking-tight transition-colors ${
+                      location.pathname === link.path ? 'text-accent' : 'text-primary-foreground/70 hover:text-primary-foreground'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ))}
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.path}
