@@ -11,7 +11,6 @@ const quickLinks = [
 ];
 
 const resourceLinks = [
-  { label: 'Forms & Resources', path: '/resources' },
   { label: 'About Us', path: '/about' },
   { label: 'Contact', path: '/contact' },
 ];
