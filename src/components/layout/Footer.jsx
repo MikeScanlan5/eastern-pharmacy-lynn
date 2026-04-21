@@ -14,6 +14,7 @@ const resourceLinks = [
   { label: 'About Us', path: '/about' },
   { label: 'Contact', path: '/contact' },
   { label: 'Terms & Conditions', path: '/terms' },
+  { label: 'Privacy Policy', path: '/privacy' },
 ];
 
 export default function Footer() {
