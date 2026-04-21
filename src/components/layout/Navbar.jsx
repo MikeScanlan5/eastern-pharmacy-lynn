@@ -34,16 +34,12 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'bg-card/95 backdrop-blur-xl shadow-sm border-b border-border' : 'bg-transparent'
-      }`}>
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0F172A] border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo - text only wordmark */}
             <Link to="/" className="flex items-center group">
-              <span className={`text-lg font-inter font-bold tracking-tight transition-colors duration-300 ${
-                scrolled ? 'text-foreground' : 'text-white'
-              }`}>Eastern Pharmacy</span>
+              <span className="text-lg font-inter font-bold tracking-tight text-white">Eastern Pharmacy</span>
             </Link>
 
             {/* Desktop Nav */}
@@ -56,8 +52,8 @@ export default function Navbar() {
               >
                 <button className={`flex items-center gap-1 text-sm font-inter font-medium transition-colors duration-300 ${
                   formsLinks.some(l => l.path === location.pathname)
-                    ? (scrolled ? 'text-accent' : 'text-white')
-                    : (scrolled ? 'text-muted-foreground hover:text-foreground' : 'text-white/70 hover:text-white')
+                    ? 'text-accent'
+                    : 'text-white/70 hover:text-white'
                 }`}>
                   Forms
                   <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${formsOpen ? 'rotate-180' : ''}`} />
@@ -91,8 +87,8 @@ export default function Navbar() {
                   to={link.path}
                   className={`text-sm font-inter font-medium transition-colors duration-300 relative group ${
                     location.pathname === link.path
-                      ? (scrolled ? 'text-accent' : 'text-white')
-                      : (scrolled ? 'text-muted-foreground hover:text-foreground' : 'text-white/70 hover:text-white')
+                      ? 'text-accent'
+                      : 'text-white/70 hover:text-white'
                   }`}
                 >
                   {link.label}
@@ -107,9 +103,7 @@ export default function Navbar() {
             <div className="flex items-center gap-4">
               <a
                 href="tel:7814602000"
-                className={`hidden md:flex items-center gap-2 text-sm font-inter font-medium transition-colors duration-300 ${
-                  scrolled ? 'text-foreground' : 'text-white'
-                }`}
+                className="hidden md:flex items-center gap-2 text-sm font-inter font-medium text-white/70 hover:text-white transition-colors duration-300"
               >
                 <Phone className="w-4 h-4" />
                 781-460-2000
@@ -122,9 +116,7 @@ export default function Navbar() {
               </Link>
               <button
                 onClick={() => setIsOpen(true)}
-                className={`lg:hidden p-2 rounded-lg transition-colors ${
-                  scrolled ? 'text-foreground hover:bg-muted' : 'text-white hover:bg-white/10'
-                }`}
+                className="lg:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
               >
                 <Menu className="w-6 h-6" />
               </button>
@@ -141,7 +133,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[100] bg-primary/98 backdrop-blur-xl flex flex-col"
+            className="fixed inset-0 z-[100] bg-[#0F172A] flex flex-col"
           >
             <div className="flex justify-end p-6">
               <button onClick={() => setIsOpen(false)} className="p-2 text-primary-foreground/70 hover:text-primary-foreground">
