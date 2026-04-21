@@ -38,7 +38,7 @@ export default function Navbar() {
               <img
                 src="https://media.base44.com/images/public/69e70dbd38987d0fb7722d27/5181b8aeb_EasternPharmacyLogo_Light1.png"
                 alt="Eastern Pharmacy"
-                className={`h-12 w-auto transition-all duration-500 ${
+                className={`h-24 w-auto transition-all duration-500 ${
                   scrolled ? 'brightness-0' : 'brightness-100'
                 }`}
               />
