@@ -34,28 +34,20 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center group">
-              {scrolled ? (
-                <img
-                  src="https://media.base44.com/images/public/69e70dbd38987d0fb7722d27/5181b8aeb_EasternPharmacyLogo_Light1.png"
-                  alt="Eastern Pharmacy"
-                  className="h-12 w-auto"
-                />
-              ) : (
-                <div className="flex items-center gap-3">
-                  <div className="h-12 w-12 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center overflow-hidden">
-                    <img
-                      src="https://media.base44.com/images/public/69e70dbd38987d0fb7722d27/5181b8aeb_EasternPharmacyLogo_Light1.png"
-                      alt="Eastern Pharmacy"
-                      className="h-10 w-auto"
-                    />
-                  </div>
-                  <div>
-                    <span className="text-lg font-inter font-semibold tracking-tight text-white">Eastern</span>
-                    <span className="block text-[10px] uppercase tracking-[0.2em] text-white/70">Pharmacy</span>
-                  </div>
-                </div>
-              )}
+            <Link to="/" className="flex items-center gap-3 group">
+              <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors duration-300 ${
+                scrolled ? 'bg-primary' : 'bg-white/10 backdrop-blur-sm border border-white/20'
+              }`}>
+                <span className={`text-lg font-inter font-bold ${scrolled ? 'text-primary-foreground' : 'text-white'}`}>E</span>
+              </div>
+              <div>
+                <span className={`text-lg font-inter font-semibold tracking-tight transition-colors duration-300 ${
+                  scrolled ? 'text-foreground' : 'text-white'
+                }`}>Eastern</span>
+                <span className={`block text-[10px] uppercase tracking-[0.2em] transition-colors duration-300 ${
+                  scrolled ? 'text-muted-foreground' : 'text-white/70'
+                }`}>Pharmacy</span>
+              </div>
             </Link>
 
             {/* Desktop Nav */}
