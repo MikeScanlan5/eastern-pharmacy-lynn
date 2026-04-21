@@ -4,6 +4,7 @@ import { Shield, Award, Clock, Users } from 'lucide-react';
 import SectionHeading from '../components/shared/SectionHeading';
 import AnimatedLine from '../components/shared/AnimatedLine';
 import StatsBar from '../components/shared/StatsBar';
+import ServiceAreaMap from '../components/map/ServiceAreaMap';
 
 const TEAM_IMAGE = 'https://media.base44.com/images/public/69e70dbd38987d0fb7722d27/d5ea19634_generated_cafe96dd.png';
 const B2B_IMAGE = 'https://media.base44.com/images/public/69e70dbd38987d0fb7722d27/813ae2746_generated_ed8b3915.png';
@@ -124,6 +125,20 @@ export default function About() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Service Area Map */}
+      <section className="py-24 lg:py-32 bg-muted/30">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="mb-10">
+            <SectionHeading
+              label="Our Reach"
+              title="The North Shore Network"
+              description="20+ active facilities spanning Lynn, Salem, Beverly, Peabody, Danvers, and beyond. Click any pin to explore the services we provide each facility."
+            />
+          </div>
+          <ServiceAreaMap />
         </div>
       </section>
 
