@@ -36,8 +36,13 @@ export default function Navbar() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0F172A] border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            {/* Logo - text only wordmark */}
-            <Link to="/" className="flex items-center group">
+            {/* Logo */}
+            <Link to="/" className="flex items-center gap-3 group">
+              <img
+                src="https://media.base44.com/images/public/69e70dbd38987d0fb7722d27/5181b8aeb_EasternPharmacyLogo_Light1.png"
+                alt="Eastern Pharmacy"
+                className="h-9 w-auto"
+              />
               <span className="text-lg font-inter font-bold tracking-tight text-white">Eastern Pharmacy</span>
             </Link>
 
