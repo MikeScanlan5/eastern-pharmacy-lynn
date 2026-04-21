@@ -13,6 +13,7 @@ const navLinks = [
 
 const formsLinks = [
   { label: 'New Patient Transfer', path: '/patient-transfer' },
+  { label: 'New Facility Patient Form', path: '/facility-patient-form' },
 ];
 
 export default function Navbar() {
