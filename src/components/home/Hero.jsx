@@ -40,7 +40,7 @@ export default function Hero({ heroImage }) {
             <div className="flex items-center gap-3 mb-8">
               <Shield className="w-5 h-5 text-accent" />
               <span className="text-xs uppercase tracking-[0.2em] text-white/60 font-inter font-semibold">
-                Lynn, Massachusetts — Serving the North Shore
+                Born in Lynn, Massachusetts — Serving the North Shore
               </span>
             </div>
 
