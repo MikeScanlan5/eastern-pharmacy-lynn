@@ -9,7 +9,6 @@ import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import SiteLayout from './components/layout/SiteLayout';
 import Home from './pages/Home';
 import Services from './pages/Services';
-import Resources from './pages/Resources';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import PatientTransfer from './pages/PatientTransfer';
@@ -40,7 +39,6 @@ const AuthenticatedApp = () => {
       <Route element={<SiteLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
-        <Route path="/resources" element={<Resources />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/patient-transfer" element={<PatientTransfer />} />
