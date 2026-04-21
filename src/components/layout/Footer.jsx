@@ -101,7 +101,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Eastern Pharmacy, Lynn MA. All rights reserved.
           </p>
           <p className="text-xs text-muted-foreground/50">
-            Institutional Pharmacy Services
+            Website design by BSTN Consulting Group (<a href="https://www.bstn.io" target="_blank" rel="noopener noreferrer" className="hover:text-muted-foreground transition-colors">www.bstn.io</a>)
           </p>
         </div>
       </div>
