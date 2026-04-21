@@ -37,12 +37,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="mb-6">
-              <img
-                src="https://media.base44.com/images/public/69e70dbd38987d0fb7722d27/5181b8aeb_EasternPharmacyLogo_Light1.png"
-                alt="Eastern Pharmacy"
-                className="h-16 w-auto brightness-0 invert"
-              />
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center">
+                <span className="text-lg font-inter font-bold text-accent-foreground">E</span>
+              </div>
+              <div>
+                <span className="text-lg font-inter font-semibold">Eastern</span>
+                <span className="block text-[10px] uppercase tracking-[0.2em] text-primary-foreground/50">Pharmacy</span>
+              </div>
             </div>
             <p className="text-sm text-primary-foreground/60 leading-relaxed mb-6">
               Precision institutional pharmacy serving nursing homes, hospitals, and clinical facilities across Massachusetts' North Shore.
