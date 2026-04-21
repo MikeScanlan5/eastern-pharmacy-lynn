@@ -1,0 +1,69 @@
+{
+  "name": "ContactInquiry",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Full name of the person submitting the inquiry"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Contact email address"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Contact phone number"
+    },
+    "organization": {
+      "type": "string",
+      "description": "Name of the facility or organization"
+    },
+    "facility_type": {
+      "type": "string",
+      "enum": [
+        "nursing_home",
+        "hospital",
+        "clinic",
+        "group_home",
+        "map_program",
+        "individual",
+        "other"
+      ],
+      "description": "Type of facility"
+    },
+    "service_interest": {
+      "type": "string",
+      "enum": [
+        "long_term_care",
+        "compliance_packaging",
+        "blister_packing",
+        "delivery",
+        "map_services",
+        "consulting",
+        "general"
+      ],
+      "description": "Service they are interested in"
+    },
+    "message": {
+      "type": "string",
+      "description": "Message or details about their inquiry"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "contacted",
+        "in_progress",
+        "closed"
+      ],
+      "default": "new",
+      "description": "Status of the inquiry"
+    }
+  },
+  "required": [
+    "name",
+    "email",
+    "message"
+  ]
+}
