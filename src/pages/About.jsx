@@ -10,27 +10,27 @@ const TEAM_IMAGE = 'https://media.base44.com/images/public/69e70dbd38987d0fb7722
 const B2B_IMAGE = 'https://media.base44.com/images/public/69e70dbd38987d0fb7722d27/813ae2746_generated_ed8b3915.png';
 
 const values = [
-  {
-    icon: Shield,
-    title: 'Precision',
-    description: 'Every medication, every dose, every delivery is handled with pharmaceutical-grade exactness.',
-  },
-  {
-    icon: Award,
-    title: 'Compliance',
-    description: 'We maintain the highest standards of regulatory compliance for every facility we serve.',
-  },
-  {
-    icon: Clock,
-    title: 'Reliability',
-    description: 'Available 24/7/365 with emergency support, because healthcare never takes a day off.',
-  },
-  {
-    icon: Users,
-    title: 'Partnership',
-    description: 'We don\'t just fill prescriptions — we become an extension of your clinical care team.',
-  },
-];
+{
+  icon: Shield,
+  title: 'Precision',
+  description: 'Every medication, every dose, every delivery is handled with pharmaceutical-grade exactness.'
+},
+{
+  icon: Award,
+  title: 'Compliance',
+  description: 'We maintain the highest standards of regulatory compliance for every facility we serve.'
+},
+{
+  icon: Clock,
+  title: 'Reliability',
+  description: 'Available 24/7/365 with emergency support, because healthcare never takes a day off.'
+},
+{
+  icon: Users,
+  title: 'Partnership',
+  description: 'We don\'t just fill prescriptions — we become an extension of your clinical care team.'
+}];
+
 
 export default function About() {
   return (
@@ -42,8 +42,8 @@ export default function About() {
             label="About Eastern Pharmacy"
             title="Three Decades of Institutional Excellence"
             description="Founded and operated by Evan Dorcet in Lynn, Massachusetts, Eastern Pharmacy has spent over 30 years building a reputation as the North Shore's most trusted institutional pharmacy."
-            light
-          />
+            light />
+          
         </div>
       </section>
 
@@ -57,8 +57,8 @@ export default function About() {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
+              transition={{ duration: 0.6 }}>
+              
               <span className="text-xs uppercase tracking-[0.2em] text-accent font-inter font-semibold">Our Story</span>
               <h2 className="mt-4 text-3xl md:text-4xl font-inter font-bold text-foreground tracking-tight leading-tight">
                 Built on Trust, Powered by Precision
@@ -85,13 +85,13 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="rounded-2xl overflow-hidden"
-            >
+              className="rounded-2xl overflow-hidden">
+              
               <img
                 src={TEAM_IMAGE}
                 alt="Eastern Pharmacy team providing pharmaceutical consultation"
-                className="w-full h-full object-cover aspect-[4/3]"
-              />
+                className="w-full h-full object-cover aspect-[4/3]" />
+              
             </motion.div>
           </div>
         </div>
@@ -105,25 +105,25 @@ export default function About() {
           <SectionHeading
             label="Our Values"
             title="The Pillars of Our Practice"
-            align="center"
-          />
+            align="center" />
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((v, i) => (
-              <motion.div
-                key={v.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="text-center p-8 rounded-xl border border-border bg-card hover:border-accent/30 transition-all duration-500"
-              >
+            {values.map((v, i) =>
+            <motion.div
+              key={v.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="text-center p-8 rounded-xl border border-border bg-card hover:border-accent/30 transition-all duration-500">
+              
                 <div className="w-14 h-14 mx-auto rounded-xl bg-accent/10 flex items-center justify-center mb-6">
                   <v.icon className="w-7 h-7 text-accent" />
                 </div>
                 <h3 className="text-lg font-inter font-semibold text-foreground mb-3">{v.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{v.description}</p>
               </motion.div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -135,8 +135,8 @@ export default function About() {
             <SectionHeading
               label="Our Reach"
               title="The North Shore Network"
-              description="20+ active facilities spanning Lynn, Salem, Beverly, Peabody, Danvers, and beyond. Click any pin to explore the services we provide each facility."
-            />
+              description="20+ active facilities spanning Lynn, Salem, Beverly, Peabody, Danvers, and beyond. Click any pin to explore the services we provide each facility." />
+            
           </div>
           <ServiceAreaMap />
         </div>
@@ -146,14 +146,14 @@ export default function About() {
       <section className="pb-24 lg:pb-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="rounded-2xl overflow-hidden">
-            <img
-              src={B2B_IMAGE}
-              alt="Modern pharmaceutical facility"
-              className="w-full h-80 lg:h-[28rem] object-cover"
-            />
+            <img src="https://media.base44.com/images/public/69e70dbd38987d0fb7722d27/5181b8aeb_EasternPharmacyLogo_Light1.png"
+
+            alt="Modern pharmaceutical facility" className="w-full h-80 lg:h-[28rem] object-cover" />
+
+            
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>);
+
 }
