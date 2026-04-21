@@ -31,7 +31,8 @@ export default function Hero({ heroImage }) {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-32 w-full">
-        <div className="max-w-3xl">
+        <div className="flex items-start gap-16">
+        <div className="max-w-3xl flex-1">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -72,6 +73,22 @@ export default function Hero({ heroImage }) {
               </Link>
             </div>
           </motion.div>
+        </div>
+
+        {/* Logo to the right of hero text */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="hidden lg:flex items-center justify-center shrink-0"
+        >
+          <img
+            src="https://media.base44.com/images/public/69e70dbd38987d0fb7722d27/5181b8aeb_EasternPharmacyLogo_Light1.png"
+            alt="Eastern Pharmacy"
+            className="h-64 w-auto"
+          />
+        </motion.div>
+
         </div>
       </div>
 

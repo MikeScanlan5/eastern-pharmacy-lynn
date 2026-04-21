@@ -33,15 +33,11 @@ export default function Navbar() {
       }`}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            {/* Logo */}
+            {/* Logo - text only wordmark */}
             <Link to="/" className="flex items-center group">
-              <img
-                src="https://media.base44.com/images/public/69e70dbd38987d0fb7722d27/5181b8aeb_EasternPharmacyLogo_Light1.png"
-                alt="Eastern Pharmacy"
-                className={`h-24 w-auto transition-all duration-500 ${
-                  scrolled ? 'brightness-0' : 'brightness-100'
-                }`}
-              />
+              <span className={`text-lg font-inter font-bold tracking-tight transition-colors duration-300 ${
+                scrolled ? 'text-foreground' : 'text-white'
+              }`}>Eastern Pharmacy</span>
             </Link>
 
             {/* Desktop Nav */}
