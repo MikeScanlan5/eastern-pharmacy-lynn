@@ -13,6 +13,7 @@ const quickLinks = [
 const resourceLinks = [
   { label: 'About Us', path: '/about' },
   { label: 'Contact', path: '/contact' },
+  { label: 'Terms & Conditions', path: '/terms' },
 ];
 
 export default function Footer() {
