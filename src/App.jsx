@@ -12,6 +12,7 @@ import Services from './pages/Services';
 import Resources from './pages/Resources';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import PatientTransfer from './pages/PatientTransfer';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -41,6 +42,7 @@ const AuthenticatedApp = () => {
         <Route path="/resources" element={<Resources />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/patient-transfer" element={<PatientTransfer />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>

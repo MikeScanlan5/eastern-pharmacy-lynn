@@ -1,0 +1,72 @@
+{
+  "name": "PatientTransfer",
+  "type": "object",
+  "properties": {
+    "patient_first_name": {
+      "type": "string",
+      "description": "Patient's first name"
+    },
+    "patient_last_name": {
+      "type": "string",
+      "description": "Patient's last name"
+    },
+    "telephone": {
+      "type": "string",
+      "description": "Contact telephone number"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Email address"
+    },
+    "street_address_1": {
+      "type": "string",
+      "description": "Street address line 1"
+    },
+    "street_address_2": {
+      "type": "string",
+      "description": "Street address line 2"
+    },
+    "city": {
+      "type": "string",
+      "description": "City"
+    },
+    "state": {
+      "type": "string",
+      "description": "State"
+    },
+    "zip_code": {
+      "type": "string",
+      "description": "Zip code"
+    },
+    "drug_allergies": {
+      "type": "string",
+      "description": "Drug allergies if applicable"
+    },
+    "current_pharmacy": {
+      "type": "string",
+      "description": "Current pharmacy name"
+    },
+    "insurance": {
+      "type": "string",
+      "description": "Insurance information"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "in_review",
+        "completed"
+      ],
+      "default": "new",
+      "description": "Status of the transfer request"
+    }
+  },
+  "required": [
+    "patient_first_name",
+    "patient_last_name",
+    "email",
+    "street_address_1",
+    "city"
+  ]
+}
