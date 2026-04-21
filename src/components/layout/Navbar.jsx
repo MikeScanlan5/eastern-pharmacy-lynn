@@ -45,7 +45,7 @@ export default function Navbar() {
               <img
                 src="https://media.base44.com/images/public/69e70dbd38987d0fb7722d27/a72d6e609_EasternPharmacyLogo_Light.png"
                 alt="Eastern Pharmacy"
-                className="h-12 w-auto"
+                className="h-24 w-auto"
               />
             </Link>
 
