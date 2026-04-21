@@ -39,16 +39,7 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 group">
-              <img
-                src="https://media.base44.com/images/public/69e70dbd38987d0fb7722d27/a72d6e609_EasternPharmacyLogo_Light.png"
-                alt="Eastern Pharmacy"
-                className="h-24 w-auto"
-              />
-            </Link>
-
+          <div className="flex items-center justify-between h-16">
             {/* Desktop Nav */}
             <div className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) => (

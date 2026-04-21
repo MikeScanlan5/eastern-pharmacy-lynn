@@ -21,6 +21,15 @@ export default function Hero({ heroImage }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
+            <motion.img
+              src="https://media.base44.com/images/public/69e70dbd38987d0fb7722d27/a72d6e609_EasternPharmacyLogo_Light.png"
+              alt="Eastern Pharmacy"
+              className="w-56 mb-8"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            />
+
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-full mb-6">
               <MapPin className="w-4 h-4 text-accent" />
               <span className="text-xs font-inter font-semibold text-accent uppercase tracking-wider">
