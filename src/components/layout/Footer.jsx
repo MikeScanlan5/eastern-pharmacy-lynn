@@ -76,6 +76,10 @@ export default function Footer() {
                 <a href="tel:7814602000" className="text-sm text-muted-foreground hover:text-accent transition-colors">781-460-2000</a>
               </li>
               <li className="flex items-start gap-3">
+                <Phone className="w-4 h-4 mt-0.5 text-accent shrink-0" />
+                <span className="text-sm text-muted-foreground">Fax: 855-641-2315</span>
+              </li>
+              <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 mt-0.5 text-accent shrink-0" />
                 <a href="mailto:easternpharmacylynn@gmail.com" className="text-sm text-muted-foreground hover:text-accent transition-colors break-all">
                   easternpharmacylynn@gmail.com
