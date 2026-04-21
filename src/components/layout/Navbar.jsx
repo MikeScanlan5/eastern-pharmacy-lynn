@@ -43,12 +43,10 @@ export default function Navbar() {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group">
               <img
-                src="https://media.base44.com/images/public/69e70dbd38987d0fb7722d27/5181b8aeb_EasternPharmacyLogo_Light1.png"
+                src="https://media.base44.com/images/public/69e70dbd38987d0fb7722d27/a72d6e609_EasternPharmacyLogo_Light.png"
                 alt="Eastern Pharmacy"
-                className="h-9 w-auto"
-                style={{ filter: 'hue-rotate(160deg) saturate(0.8) brightness(0.6)' }}
+                className="h-12 w-auto"
               />
-              <span className="text-lg font-inter font-bold tracking-tight text-foreground">Eastern Pharmacy</span>
             </Link>
 
             {/* Desktop Nav */}
