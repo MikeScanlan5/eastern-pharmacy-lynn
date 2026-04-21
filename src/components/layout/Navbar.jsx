@@ -33,7 +33,11 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/10" style={{ backgroundColor: '#0F172A' }}>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled ? 'bg-white shadow-md border-b border-border' : 'bg-white/95 backdrop-blur-sm border-b border-border/60'
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
@@ -42,8 +46,9 @@ export default function Navbar() {
                 src="https://media.base44.com/images/public/69e70dbd38987d0fb7722d27/5181b8aeb_EasternPharmacyLogo_Light1.png"
                 alt="Eastern Pharmacy"
                 className="h-9 w-auto"
+                style={{ filter: 'hue-rotate(160deg) saturate(0.8) brightness(0.6)' }}
               />
-              <span className="text-lg font-inter font-bold tracking-tight text-white">Eastern Pharmacy</span>
+              <span className="text-lg font-inter font-bold tracking-tight text-foreground">Eastern Pharmacy</span>
             </Link>
 
             {/* Desktop Nav */}
@@ -55,7 +60,7 @@ export default function Navbar() {
                   className={`text-sm font-inter font-medium transition-colors duration-300 relative group ${
                     location.pathname === link.path
                       ? 'text-accent'
-                      : 'text-white/70 hover:text-white'
+                      : 'text-foreground/70 hover:text-accent'
                   }`}
                 >
                   {link.label}
@@ -74,7 +79,7 @@ export default function Navbar() {
                 <button className={`flex items-center gap-1 text-sm font-inter font-medium transition-colors duration-300 ${
                   formsLinks.some(l => l.path === location.pathname)
                     ? 'text-accent'
-                    : 'text-white/70 hover:text-white'
+                    : 'text-foreground/70 hover:text-accent'
                 }`}>
                   Forms
                   <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${formsOpen ? 'rotate-180' : ''}`} />
@@ -86,7 +91,7 @@ export default function Navbar() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 6 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute top-full left-0 mt-2 w-52 bg-card border border-border rounded-xl shadow-xl overflow-hidden z-50"
+                      className="absolute top-full left-0 mt-2 w-52 bg-white border border-border rounded-xl shadow-xl overflow-hidden z-50"
                     >
                       {formsLinks.map((link) => (
                         <Link
@@ -107,20 +112,20 @@ export default function Navbar() {
             <div className="flex items-center gap-4">
               <a
                 href="tel:7814602000"
-                className="hidden md:flex items-center gap-2 text-sm font-inter font-medium text-white/70 hover:text-white transition-colors duration-300"
+                className="hidden md:flex items-center gap-2 text-sm font-inter font-medium text-foreground/60 hover:text-accent transition-colors duration-300"
               >
                 <Phone className="w-4 h-4" />
                 781-460-2000
               </a>
               <Link
                 to="/contact"
-                className="hidden lg:inline-flex px-5 py-2.5 bg-accent text-accent-foreground text-sm font-inter font-semibold rounded-lg hover:bg-accent/90 transition-all duration-300 hover:shadow-lg hover:shadow-accent/25"
+                className="hidden lg:inline-flex px-5 py-2.5 bg-accent text-accent-foreground text-sm font-inter font-semibold rounded-full hover:bg-accent/90 transition-all duration-300 hover:shadow-lg hover:shadow-accent/25"
               >
                 Contact Us
               </Link>
               <button
                 onClick={() => setIsOpen(true)}
-                className="lg:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
+                className="lg:hidden p-2 rounded-lg text-foreground hover:bg-muted transition-colors"
               >
                 <Menu className="w-6 h-6" />
               </button>
@@ -137,15 +142,15 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[100] bg-[#0F172A] flex flex-col"
+            className="fixed inset-0 z-[100] bg-white flex flex-col"
           >
-            <div className="flex justify-end p-6">
-              <button onClick={() => setIsOpen(false)} className="p-2 text-primary-foreground/70 hover:text-primary-foreground">
+            <div className="flex justify-between items-center p-6 border-b border-border">
+              <span className="text-lg font-inter font-bold text-foreground">Eastern Pharmacy</span>
+              <button onClick={() => setIsOpen(false)} className="p-2 text-foreground/60 hover:text-foreground">
                 <X className="w-8 h-8" />
               </button>
             </div>
             <div className="flex-1 flex flex-col items-center justify-center gap-8">
-              {/* Forms mobile links */}
               {formsLinks.map((link, i) => (
                 <motion.div
                   key={link.path}
@@ -155,8 +160,8 @@ export default function Navbar() {
                 >
                   <Link
                     to={link.path}
-                    className={`text-4xl font-inter font-semibold tracking-tight transition-colors ${
-                      location.pathname === link.path ? 'text-accent' : 'text-primary-foreground/70 hover:text-primary-foreground'
+                    className={`text-3xl font-inter font-semibold tracking-tight transition-colors ${
+                      location.pathname === link.path ? 'text-accent' : 'text-foreground/60 hover:text-accent'
                     }`}
                   >
                     {link.label}
@@ -172,8 +177,8 @@ export default function Navbar() {
                 >
                   <Link
                     to={link.path}
-                    className={`text-4xl font-inter font-semibold tracking-tight transition-colors ${
-                      location.pathname === link.path ? 'text-accent' : 'text-primary-foreground/70 hover:text-primary-foreground'
+                    className={`text-3xl font-inter font-semibold tracking-tight transition-colors ${
+                      location.pathname === link.path ? 'text-accent' : 'text-foreground/60 hover:text-accent'
                     }`}
                   >
                     {link.label}
@@ -181,7 +186,7 @@ export default function Navbar() {
                 </motion.div>
               ))}
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>
-                <a href="tel:7814602000" className="flex items-center gap-3 text-primary-foreground/50 text-lg mt-8">
+                <a href="tel:7814602000" className="flex items-center gap-3 text-muted-foreground text-lg mt-8">
                   <Phone className="w-5 h-5" />
                   781-460-2000
                 </a>

@@ -1,99 +1,140 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Shield } from 'lucide-react';
+import { ArrowRight, MapPin, Heart, Clock } from 'lucide-react';
 
 export default function Hero({ heroImage }) {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <img
-          src={heroImage}
-          alt="Advanced pharmaceutical automation technology"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/40" />
-      </div>
+    <section className="relative pt-20 overflow-hidden bg-background">
+      {/* Soft decorative blobs */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-20 pointer-events-none"
+        style={{ background: 'radial-gradient(circle, hsl(168,52%,38%) 0%, transparent 70%)', transform: 'translate(30%, -30%)' }} />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full opacity-10 pointer-events-none"
+        style={{ background: 'radial-gradient(circle, hsl(168,52%,38%) 0%, transparent 70%)', transform: 'translate(-40%, 40%)' }} />
 
-      {/* Animated Lines */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(5)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute left-0 right-0 h-px bg-white/5"
-            style={{ top: `${20 + i * 15}%` }}
-            initial={{ x: '-100%' }}
-            animate={{ x: '100%' }}
-            transition={{ duration: 8 + i * 2, repeat: Infinity, delay: i * 1.5, ease: 'linear' }}
-          />
-        ))}
-      </div>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-32 w-full">
-        <div className="flex items-start gap-16">
-        <div className="max-w-3xl flex-1">
+          {/* Left: Text */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7 }}
           >
-            <div className="flex items-center gap-3 mb-8">
-              <Shield className="w-5 h-5 text-accent" />
-              <span className="text-xs uppercase tracking-[0.2em] text-white/60 font-inter font-semibold">
-                Started in Lynn, Massachusetts — Servicing the entire North Shore
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-full mb-6">
+              <MapPin className="w-4 h-4 text-accent" />
+              <span className="text-xs font-inter font-semibold text-accent uppercase tracking-wider">
+                Lynn, MA — Serving the North Shore
               </span>
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-inter font-bold text-white tracking-tight leading-[0.95]">
-              PRECISION<br />
-              PHARMACY.<br />
-              <span className="text-accent">INSTITUTIONAL</span><br />
-              SCALE.
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-inter font-bold text-foreground tracking-tight leading-tight">
+              Your Trusted<br />
+              Neighborhood<br />
+              <span className="text-accent">Pharmacy</span>
             </h1>
 
-            <p className="mt-8 text-lg md:text-xl text-white/60 max-w-lg leading-relaxed">
-              Serving nursing homes, hospitals, and clinical facilities with compliance packaging, 
-              medication management, and 24/7 pharmaceutical support.
+            <p className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-lg">
+              Eastern Pharmacy brings personalized care and precision medication management to nursing homes, 
+              group homes, and families across Massachusetts' North Shore.
             </p>
+
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <div className="w-5 h-5 rounded-full bg-accent/15 flex items-center justify-center">
+                  <Heart className="w-3 h-3 text-accent" />
+                </div>
+                Personalized Care
+              </div>
+              <div className="w-px h-4 bg-border" />
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <div className="w-5 h-5 rounded-full bg-accent/15 flex items-center justify-center">
+                  <Clock className="w-3 h-3 text-accent" />
+                </div>
+                24/7 Support
+              </div>
+              <div className="w-px h-4 bg-border" />
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <div className="w-5 h-5 rounded-full bg-accent/15 flex items-center justify-center">
+                  <ArrowRight className="w-3 h-3 text-accent" />
+                </div>
+                Free Delivery
+              </div>
+            </div>
 
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <Link
                 to="/contact"
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-accent text-accent-foreground font-inter font-semibold rounded-lg hover:bg-accent/90 transition-all duration-300 hover:shadow-xl hover:shadow-accent/25 hover:scale-[1.02] active:scale-[0.98]"
+                className="group inline-flex items-center gap-3 px-8 py-4 bg-accent text-accent-foreground font-inter font-semibold rounded-full hover:bg-accent/90 transition-all duration-300 hover:shadow-xl hover:shadow-accent/20 hover:scale-[1.02] active:scale-[0.98]"
               >
-                Partner With Us
+                Get In Touch
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 to="/services"
-                className="inline-flex items-center gap-2 px-8 py-4 text-white/80 font-inter font-medium hover:text-white transition-colors border border-white/20 rounded-lg hover:border-white/40"
+                className="inline-flex items-center gap-2 px-8 py-4 text-foreground font-inter font-medium hover:text-accent transition-colors border border-border rounded-full hover:border-accent/40"
               >
-                Explore Services
+                Our Services
               </Link>
             </div>
           </motion.div>
-        </div>
 
-        {/* Logo to the right of hero text */}
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="hidden lg:flex items-center justify-center shrink-0"
-        >
-          <img
-            src="https://media.base44.com/images/public/69e70dbd38987d0fb7722d27/5181b8aeb_EasternPharmacyLogo_Light1.png"
-            alt="Eastern Pharmacy"
-            className="h-64 w-auto"
-          />
-        </motion.div>
+          {/* Right: Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
+          >
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-accent/10">
+              <img
+                src={heroImage}
+                alt="Eastern Pharmacy team and facility"
+                className="w-full h-[480px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent" />
+            </div>
+
+            {/* Floating card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+              className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-5 border border-border"
+            >
+              <p className="text-xs text-muted-foreground font-inter mb-1">Trusted by</p>
+              <p className="text-2xl font-inter font-bold text-accent">100+ Facilities</p>
+              <p className="text-xs text-muted-foreground font-inter mt-1">Across the North Shore</p>
+            </motion.div>
+
+            {/* Second floating card */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
+              className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl p-4 border border-border"
+            >
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-accent/15 flex items-center justify-center">
+                  <Heart className="w-4 h-4 text-accent" />
+                </div>
+                <div>
+                  <p className="text-xs font-inter font-semibold text-foreground">30+ Years</p>
+                  <p className="text-xs text-muted-foreground">of Service</p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
 
         </div>
       </div>
 
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      {/* Wave divider */}
+      <div className="relative h-16 overflow-hidden">
+        <svg viewBox="0 0 1440 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute bottom-0 w-full" preserveAspectRatio="none">
+          <path d="M0 32C360 0 720 64 1080 32C1260 16 1380 8 1440 32V64H0V32Z" fill="hsl(0,0%,100%)" />
+        </svg>
+      </div>
     </section>
   );
 }

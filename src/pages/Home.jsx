@@ -15,7 +15,7 @@ export default function Home() {
       <StatsBar />
       <ServicesPreview />
       <Testimonials />
-      <CTASection deliveryImage={DELIVERY_IMAGE} />
+      <CTASection />
     </>
   );
 }
