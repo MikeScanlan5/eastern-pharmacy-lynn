@@ -5,8 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
   { label: 'Home', path: '/' },
-  { label: 'Services', path: '/services' },
   { label: 'About', path: '/about' },
+  { label: 'Services', path: '/services' },
   { label: 'Contact', path: '/contact' },
 ];
 
@@ -48,6 +48,23 @@ export default function Navbar() {
 
             {/* Desktop Nav */}
             <div className="hidden lg:flex items-center gap-8">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`text-sm font-inter font-medium transition-colors duration-300 relative group ${
+                    location.pathname === link.path
+                      ? 'text-accent'
+                      : 'text-white/70 hover:text-white'
+                  }`}
+                >
+                  {link.label}
+                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-accent transition-all duration-300 ${
+                    location.pathname === link.path ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`} />
+                </Link>
+              ))}
+
               {/* Forms Dropdown */}
               <div
                 className="relative"
@@ -84,23 +101,6 @@ export default function Navbar() {
                   )}
                 </AnimatePresence>
               </div>
-
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`text-sm font-inter font-medium transition-colors duration-300 relative group ${
-                    location.pathname === link.path
-                      ? 'text-accent'
-                      : 'text-white/70 hover:text-white'
-                  }`}
-                >
-                  {link.label}
-                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-accent transition-all duration-300 ${
-                    location.pathname === link.path ? 'w-full' : 'w-0 group-hover:w-full'
-                  }`} />
-                </Link>
-              ))}
             </div>
 
             {/* CTA + Hamburger */}
