@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 const contactInfo = [
   { icon: Phone, label: 'Phone', value: '781-460-2000', href: 'tel:7814602000' },
   { icon: Mail, label: 'Email', value: 'easternpharmacylynn@gmail.com', href: 'mailto:easternpharmacylynn@gmail.com' },
-  { icon: MapPin, label: 'Location', value: 'Lynn, Massachusetts' },
+  { icon: MapPin, label: 'Location', value: '152 Lynnway Suite 1C\nLynn, MA 01902' },
   { icon: Clock, label: 'Hours', value: 'Mon–Fri: 9am – 6pm\nEmergency: 24/7' },
 ];
 
