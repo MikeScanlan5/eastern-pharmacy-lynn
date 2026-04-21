@@ -41,7 +41,7 @@ export default function Footer() {
               <img
                 src="https://media.base44.com/images/public/69e70dbd38987d0fb7722d27/5181b8aeb_EasternPharmacyLogo_Light1.png"
                 alt="Eastern Pharmacy"
-                className="h-14 w-auto brightness-0 invert opacity-90"
+                className="h-14 w-auto"
               />
             </div>
             <p className="text-sm text-primary-foreground/60 leading-relaxed mb-6">
