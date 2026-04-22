@@ -54,7 +54,7 @@ export default function PatientTransfer() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="bg-primary py-8 lg:py-32">
+      <section className="bg-primary py-8 lg:py-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <SectionHeading
             label="Patient Services"
