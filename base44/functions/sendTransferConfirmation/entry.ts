@@ -85,7 +85,7 @@ Deno.serve(async (req) => {
     ].filter(Boolean).join('\n');
 
     const internalMime = [
-      'To: easternpharmacylynn@gmail.com, store@easternpharmacylynn.com',
+      'To: easternpharmacylynn@gmail.com, store@easternpharmacylynn.com, evandostert@gmail.com',
       'From: Eastern Pharmacy <easternpharmacylynn@gmail.com>',
       'Subject: New Patient Transfer Request Received',
       'Content-Type: text/plain; charset=utf-8',
