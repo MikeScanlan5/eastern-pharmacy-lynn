@@ -67,7 +67,7 @@ export default function PatientTransfer() {
 
       <AnimatedLine />
 
-      <section className="py-24 lg:py-32">
+      <section className="pt-32 pb-10 lg:py-32">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
           {submitted ?
           <motion.div
