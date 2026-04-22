@@ -5,23 +5,23 @@ import { CheckCircle2, UserRound, MapPin, Pill, Building2 } from 'lucide-react';
 import SectionHeading from '../components/shared/SectionHeading';
 import AnimatedLine from '../components/shared/AnimatedLine';
 
-const Field = ({ label, required, optional, italic, children }) => (
-  <div className="flex flex-col gap-1.5">
+const Field = ({ label, required, optional, italic, children }) =>
+<div className="flex flex-col gap-1.5">
     <label className="text-sm font-inter font-medium text-foreground">
       {label}
       {required && <span className="text-accent ml-1">*</span>}
-      {(optional || italic) && (
-        <span className="text-muted-foreground font-normal italic ml-1">
+      {(optional || italic) &&
+    <span className="text-muted-foreground font-normal italic ml-1">
           {optional ? '(optional)' : italic}
         </span>
-      )}
+    }
     </label>
     {children}
-  </div>
-);
+  </div>;
+
 
 const inputClass =
-  'w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground font-inter text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition-all';
+'w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground font-inter text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition-all';
 
 export default function PatientTransfer() {
   const [form, setForm] = useState({
@@ -36,7 +36,7 @@ export default function PatientTransfer() {
     zip_code: '',
     drug_allergies: '',
     current_pharmacy: '',
-    insurance: '',
+    insurance: ''
   });
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -54,14 +54,14 @@ export default function PatientTransfer() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="py-24 lg:py-32 bg-primary">
+      <section className="bg-primary py-8 lg:py-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <SectionHeading
             label="Patient Services"
             title="New Patient Transfer Form"
             description="Transfer your prescriptions to Eastern Pharmacy quickly and securely. Our team will reach out within one business day to complete your transfer."
-            light
-          />
+            light />
+          
         </div>
       </section>
 
@@ -69,12 +69,12 @@ export default function PatientTransfer() {
 
       <section className="py-24 lg:py-32">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
-          {submitted ? (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="text-center py-20 px-8 rounded-2xl border border-border bg-card shadow-sm"
-            >
+          {submitted ?
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="text-center py-20 px-8 rounded-2xl border border-border bg-card shadow-sm">
+            
               <div className="w-16 h-16 mx-auto rounded-full bg-accent/10 flex items-center justify-center mb-6">
                 <CheckCircle2 className="w-8 h-8 text-accent" />
               </div>
@@ -88,14 +88,14 @@ export default function PatientTransfer() {
                   781-460-2000
                 </a>
               </p>
-            </motion.div>
-          ) : (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="rounded-2xl border border-border bg-card shadow-sm overflow-hidden"
-            >
+            </motion.div> :
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="rounded-2xl border border-border bg-card shadow-sm overflow-hidden">
+            
               {/* Form Header */}
               <div className="px-8 md:px-10 pt-10 pb-6 border-b border-border">
                 <p className="text-xs text-muted-foreground font-inter">
@@ -184,19 +184,19 @@ export default function PatientTransfer() {
                 {/* Submit */}
                 <div className="pt-2">
                   <button
-                    type="submit"
-                    disabled={loading}
-                    className="w-full py-4 bg-accent text-accent-foreground font-inter font-semibold rounded-lg hover:bg-accent/90 transition-all hover:shadow-lg hover:shadow-accent/20 disabled:opacity-60 disabled:cursor-not-allowed"
-                  >
+                  type="submit"
+                  disabled={loading}
+                  className="w-full py-4 bg-accent text-accent-foreground font-inter font-semibold rounded-lg hover:bg-accent/90 transition-all hover:shadow-lg hover:shadow-accent/20 disabled:opacity-60 disabled:cursor-not-allowed">
+                  
                     {loading ? 'Submitting...' : 'Submit Transfer Request'}
                   </button>
                 </div>
 
               </form>
             </motion.div>
-          )}
+          }
         </div>
       </section>
-    </div>
-  );
+    </div>);
+
 }
