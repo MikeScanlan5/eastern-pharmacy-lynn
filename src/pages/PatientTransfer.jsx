@@ -54,7 +54,7 @@ export default function PatientTransfer() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="bg-primary py-4 lg:py-8">
+      <section className="bg-primary py-8 lg:py-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <SectionHeading
             label="Patient Services"
@@ -97,7 +97,7 @@ export default function PatientTransfer() {
             className="rounded-2xl border border-border bg-card shadow-sm overflow-hidden">
             
               {/* Form Header */}
-              <div className="px-8 md:px-10 pt-10 pb-6 border-b border-border">
+              <div className="px-8 md:px-10 pt-10 pb-6 border-b border-border hidden">
                 <p className="text-xs text-muted-foreground font-inter">
                   <span className="text-accent font-semibold">*</span> indicates a required field
                 </p>
