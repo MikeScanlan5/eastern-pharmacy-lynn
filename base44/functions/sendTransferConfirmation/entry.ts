@@ -53,6 +53,7 @@ Deno.serve(async (req) => {
       .replace(/\//g, '_')
       .replace(/=+$/, '');
 
+    // Send confirmation to patient
     const res = await fetch('https://gmail.googleapis.com/gmail/v1/users/me/messages/send', {
       method: 'POST',
       headers: {
@@ -67,7 +68,46 @@ Deno.serve(async (req) => {
       throw new Error(`Gmail API error: ${err}`);
     }
 
-    return Response.json({ message: `Confirmation email sent to ${patient.email}` });
+    // Send internal notification to Eastern Pharmacy
+    const internalBody = [
+      'A new patient transfer request has been submitted.',
+      '',
+      'Patient Details:',
+      `  • Name: ${patientName}`,
+      `  • Email: ${patient.email}`,
+      `  • Phone: ${patient.telephone || 'N/A'}`,
+      `  • Address: ${patient.street_address_1}${patient.street_address_2 ? ', ' + patient.street_address_2 : ''}, ${patient.city}, ${patient.state || ''} ${patient.zip_code || ''}`.trim(),
+      patient.current_pharmacy ? `  • Current Pharmacy: ${patient.current_pharmacy}` : '',
+      patient.insurance ? `  • Insurance: ${patient.insurance}` : '',
+      patient.drug_allergies ? `  • Drug Allergies: ${patient.drug_allergies}` : '',
+      '',
+      'Please log in to review the full submission.',
+    ].filter(Boolean).join('\n');
+
+    const internalMime = [
+      'To: easternpharmacylynn@gmail.com',
+      'From: Eastern Pharmacy <easternpharmacylynn@gmail.com>',
+      'Subject: New Patient Transfer Request Received',
+      'Content-Type: text/plain; charset=utf-8',
+      '',
+      internalBody,
+    ].join('\r\n');
+
+    const encodedInternal = btoa(unescape(encodeURIComponent(internalMime)))
+      .replace(/\+/g, '-')
+      .replace(/\//g, '_')
+      .replace(/=+$/, '');
+
+    await fetch('https://gmail.googleapis.com/gmail/v1/users/me/messages/send', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ raw: encodedInternal }),
+    });
+
+    return Response.json({ message: `Confirmation email sent to ${patient.email} and notification sent to Eastern Pharmacy.` });
   } catch (error) {
     return Response.json({ error: error.message }, { status: 500 });
   }
