@@ -97,11 +97,11 @@ export default function PatientTransfer() {
             className="rounded-2xl border border-border bg-card shadow-sm overflow-hidden">
             
               {/* Form Header */}
-              <div className="px-8 md:px-10 pt-10 pb-6 border-b border-border hidden">
-                <p className="text-xs text-muted-foreground font-inter">
-                  <span className="text-accent font-semibold">*</span> indicates a required field
-                </p>
-              </div>
+              
+
+
+
+            
 
               <form onSubmit={handleSubmit} className="px-8 md:px-10 py-10 space-y-10">
 
