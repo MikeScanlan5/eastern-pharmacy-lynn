@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
@@ -8,6 +8,9 @@ const navLinks = [
   { label: 'About', path: '/about' },
   { label: 'Services', path: '/services' },
   { label: 'Contact', path: '/contact' },
+];
+
+const formLinks = [
   { label: 'Patient Transfer', path: '/patient-transfer' },
   { label: 'Facility Patient Form', path: '/facility-patient-form' },
   { label: 'RX Order Form', path: '/rx-order-form' },
@@ -16,7 +19,19 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [formsOpen, setFormsOpen] = useState(false);
+  const formsRef = useRef(null);
   const location = useLocation();
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (formsRef.current && !formsRef.current.contains(e.target)) {
+        setFormsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -56,7 +71,46 @@ export default function Navbar() {
                 </Link>
               ))}
 
-
+              {/* Forms Dropdown */}
+              <div className="relative" ref={formsRef}>
+                <button
+                  onClick={() => setFormsOpen(o => !o)}
+                  className={`flex items-center gap-1 text-sm font-inter font-medium transition-colors duration-300 ${
+                    formLinks.some(l => l.path === location.pathname)
+                      ? 'text-accent'
+                      : 'text-foreground/70 hover:text-accent'
+                  }`}
+                >
+                  Forms
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${formsOpen ? 'rotate-180' : ''}`} />
+                </button>
+                <AnimatePresence>
+                  {formsOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute top-full left-0 mt-2 w-52 bg-white rounded-xl shadow-lg border border-border py-2 z-50"
+                    >
+                      {formLinks.map((link) => (
+                        <Link
+                          key={link.path}
+                          to={link.path}
+                          onClick={() => setFormsOpen(false)}
+                          className={`block px-4 py-2.5 text-sm font-inter transition-colors ${
+                            location.pathname === link.path
+                              ? 'text-accent font-semibold bg-accent/5'
+                              : 'text-foreground/70 hover:text-accent hover:bg-accent/5'
+                          }`}
+                        >
+                          {link.label}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             </div>
 
             {/* CTA + Hamburger */}
@@ -119,6 +173,20 @@ export default function Navbar() {
                   </Link>
                 </motion.div>
               ))}
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: navLinks.length * 0.08 }} className="flex flex-col items-center gap-3">
+                <span className="text-xs uppercase tracking-widest text-muted-foreground font-inter">Forms</span>
+                {formLinks.map((link) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className={`text-2xl font-inter font-semibold tracking-tight transition-colors ${
+                      location.pathname === link.path ? 'text-accent' : 'text-foreground/60 hover:text-accent'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </motion.div>
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>
                 <a href="tel:7814602000" className="flex items-center gap-3 text-muted-foreground text-lg mt-8">
                   <Phone className="w-5 h-5" />
