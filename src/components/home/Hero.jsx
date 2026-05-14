@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, MapPin, Heart, Clock } from 'lucide-react';
+import { MapPin, Heart, Clock, ArrowRight } from 'lucide-react';
 
 export default function Hero({ heroImage }) {
   return (
@@ -71,19 +71,24 @@ export default function Hero({ heroImage }) {
               </div>
             </div>
 
-            <div className="mt-10 flex flex-wrap items-center gap-4">
+            <div className="mt-10 flex flex-wrap items-center gap-3">
               <Link
-                to="/contact"
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-accent text-accent-foreground font-inter font-semibold rounded-full hover:bg-accent/90 transition-all duration-300 hover:shadow-xl hover:shadow-accent/20 hover:scale-[1.02] active:scale-[0.98]"
+                to="/patient-transfer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground font-inter font-semibold rounded-full hover:bg-accent/90 transition-all duration-300 hover:shadow-xl hover:shadow-accent/20 hover:scale-[1.02] active:scale-[0.98] text-sm"
               >
-                Get In Touch
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                Patient Transfer
               </Link>
               <Link
-                to="/services"
-                className="inline-flex items-center gap-2 px-8 py-4 text-foreground font-inter font-medium hover:text-accent transition-colors border border-border rounded-full hover:border-accent/40"
+                to="/facility-patient-form"
+                className="inline-flex items-center gap-2 px-6 py-3 text-foreground font-inter font-medium hover:text-accent transition-colors border border-border rounded-full hover:border-accent/40 text-sm"
               >
-                Our Services
+                Facility Patient Form
+              </Link>
+              <Link
+                to="/rx-order-form"
+                className="inline-flex items-center gap-2 px-6 py-3 text-foreground font-inter font-medium hover:text-accent transition-colors border border-border rounded-full hover:border-accent/40 text-sm"
+              >
+                RX Order Form
               </Link>
             </div>
           </motion.div>
