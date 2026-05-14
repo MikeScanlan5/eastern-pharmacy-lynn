@@ -10,6 +10,7 @@ const navLinks = [
   { label: 'Contact', path: '/contact' },
   { label: 'Patient Transfer', path: '/patient-transfer' },
   { label: 'Facility Patient Form', path: '/facility-patient-form' },
+  { label: 'RX Order Form', path: '/rx-order-form' },
 ];
 
 export default function Navbar() {

@@ -15,6 +15,7 @@ import PatientTransfer from './pages/PatientTransfer';
 import FacilityPatientForm from './pages/FacilityPatientForm';
 import TermsAndConditions from './pages/TermsAndConditions';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import RxOrderForm from './pages/RxOrderForm';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -47,6 +48,7 @@ const AuthenticatedApp = () => {
         <Route path="/facility-patient-form" element={<FacilityPatientForm />} />
         <Route path="/terms" element={<TermsAndConditions />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/rx-order-form" element={<RxOrderForm />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>
